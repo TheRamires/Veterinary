@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="clickListener"
+            type="android.view.View.OnClickListener"/>
+        <variable
+            name="entity"
+            type="com.example.veterinary.data.Meds" />
+    </data>
+    <RelativeLayout
+        android:layout_marginTop="10dp"
+        android:paddingVertical="5dp"
+        android:background="#FFFFFF"
+        android:paddingHorizontal="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <RelativeLayout
+            android:id="@+id/relative"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:text="Прием препарата"/>
+            <TextView
+                android:text="@{entity.date}"
+                android:id="@+id/date"
+                android:layout_alignParentRight="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="дата"/>
+            <TextView
+                android:text="@{entity.time}"
+                android:layout_below="@+id/date"
+                android:layout_alignParentRight="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="время"/>
+
+        </RelativeLayout>
+
+        <TableLayout
+            android:layout_below="@+id/relative"
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Препарат:"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Дозировка:"
+                />
+
+        </TableLayout>
+
+        <TableLayout
+            android:layout_marginLeft="5dp"
+            android:layout_below="@+id/relative"
+            android:layout_toRightOf="@+id/title"
+            android:id="@+id/values"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+            <TextView
+                android:textColor="@color/black"
+                android:hint="owner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{entity.medication}"
+                />
+            <TextView
+                android:textColor="@color/black"
+                android:hint="name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{entity.dosage}"
+                />
+        </TableLayout>
+        <ImageView
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/abc_vector_test"/>
+    </RelativeLayout>
+</layout>

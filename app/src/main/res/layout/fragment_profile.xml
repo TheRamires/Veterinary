@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="fragment"
+            type="com.example.veterinary.profile.FragmentProfile" />
+    </data>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".profile.FragmentProfile">
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:text="Мои питомцы"
+        android:textColor="@color/black"
+        android:textSize="35sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler"
+        android:layout_below="@+id/title"
+        android:layout_above="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#F1F0F0"
+        />
+
+    <Button
+        android:onClick="@{fragment::clickAdd}"
+        android:id="@+id/button"
+        android:layout_above="@+id/actionMenu"
+        android:layout_gravity="bottom"
+        android:text="Добавить"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="20dp"/>
+    <View
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/hline"
+        android:background="@color/black"
+        android:layout_width="match_parent"
+        android:layout_height="1dip"
+        android:layout_above="@+id/actionMenu"
+        />
+    <androidx.appcompat.widget.ActionMenuView
+        android:layout_gravity="bottom"
+        android:id="@+id/actionMenu"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_alignParentBottom="true"
+        android:background="#FFFFFF"
+        android:elevation="4dp"
+        />
+</RelativeLayout>
+</layout>
