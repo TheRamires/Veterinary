@@ -16,6 +16,7 @@ import com.example.veterinary.adding_meds.ViewModelMeds;
 import com.example.veterinary.daily_schedule.MyViewModelAdd;
 import com.example.veterinary.databinding.ActivityMainBinding;
 import com.example.veterinary.profile.MyViewModel;
+//Veterinary
 
 public class MainActivity extends AppCompatActivity {
     ActivityMainBinding binding;
