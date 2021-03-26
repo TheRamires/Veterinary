@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="fragment"
+            type="com.example.veterinary.adding_meds.FragmentAddingMeds" />
+    </data>
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".profile.FragmentAddingPet"
+        android:background="#F1F0F0">
+        <TextView
+            android:id="@+id/title"
+            android:background="#FFFFFF"
+            android:textColor="@color/black"
+            android:textSize="35sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:text="Добавление \n препарата"/>
+
+        <ImageButton
+            android:layout_marginTop="50dp"
+            android:layout_marginLeft="40dp"
+            android:background="@drawable/round_button"
+            android:id="@+id/img_b"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:onClick="@{fragment::clickBack}"
+            android:src="@drawable/back"
+            />
+
+        <FrameLayout
+            android:paddingHorizontal="5dp"
+            android:layout_below="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_gravity="center_vertical|right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/abc_vector_test"/>
+            <LinearLayout
+                android:paddingHorizontal="20dp"
+                android:layout_below="@+id/title"
+                android:orientation="vertical"
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#FFFFFF"
+                android:paddingBottom="30dp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Выберите дату"/>
+
+                <TextView
+                    android:textSize="16sp"
+                    android:paddingLeft="10dp"
+                    android:hint="______ /______"
+                    android:id="@+id/date"
+                    android:onClick="@{fragment::clickDate}"
+                    android:clickable="true"
+                    android:background="@drawable/round_corners"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:layout_marginTop="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Выберите время"/>
+                <TextView
+                    android:textSize="16sp"
+                    android:paddingLeft="10dp"
+                    android:hint="______ /______"
+                    android:id="@+id/time"
+                    android:onClick="@{fragment::clickTime}"
+                    android:clickable="true"
+                    android:background="@drawable/round_corners"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:layout_marginTop="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Название препарата"/>
+                <EditText
+                    android:background="@drawable/round_corners"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onTextChanged="@{fragment::getNameOfMeds}"/>
+                <TextView
+                    android:layout_marginTop="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Дозировка"/>
+                <EditText
+                    android:background="@drawable/round_corners"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onTextChanged="@{fragment::getDosage}"/>
+
+            </LinearLayout>
+
+        </FrameLayout>
+        <Button
+            android:onClick="@{fragment::clickSave}"
+            android:layout_alignParentBottom="true"
+            android:id="@+id/button2"
+            android:layout_above="@+id/actionMenu"
+            android:layout_gravity="bottom"
+            android:text="Cохранить"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="20dp"/>
+
+    </RelativeLayout>
+</layout>

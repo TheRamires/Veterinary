@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="fragment"
+            type="com.example.veterinary.daily_schedule.FragmentDailySchedule" />
+    </data>
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".profile.FragmentProfile">
+        <RelativeLayout
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="150dp">
+
+            <ImageButton
+                android:layout_marginTop="50dp"
+                android:layout_marginLeft="40dp"
+                android:background="@drawable/round_button"
+                android:id="@+id/img_b"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:onClick="@{fragment::clickBack}"
+                android:src="@drawable/back"
+                />
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="Name"
+                android:textColor="@color/black"
+                android:textSize="35sp"
+                android:textStyle="bold"
+                android:layout_toRightOf="@id/img_b"
+                android:layout_marginLeft="10dp"
+                />
+            <TextView
+                android:layout_marginLeft="10dp"
+                android:text="Распорядок дня"
+                android:layout_toRightOf="@id/img_b"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/name"/>
+
+
+        </RelativeLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler"
+            android:layout_below="@+id/title"
+            android:layout_above="@+id/button2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#F1F0F0"
+            />
+
+        <Button
+            android:layout_alignParentBottom="true"
+            android:onClick="@{fragment::clickAdd}"
+            android:id="@+id/button2"
+            android:layout_above="@+id/actionMenu"
+            android:layout_gravity="bottom"
+            android:text="Добавить"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="20dp"/>
+    </RelativeLayout>
+</layout>

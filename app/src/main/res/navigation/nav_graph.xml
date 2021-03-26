@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/fragmentProfile">
+    <fragment
+        android:id="@+id/fragmentProfile"
+        android:name="com.example.veterinary.profile.FragmentProfile"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_fragmentProfile_to_fragmentAdding"
+            app:destination="@id/fragmentAdding" />
+        <action
+            android:id="@+id/action_fragmentProfile_to_fragmentDailySchedule"
+            app:destination="@id/fragmentDailySchedule" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentAdding"
+        android:name="com.example.veterinary.profile.FragmentAddingPet"
+        android:label="FragmentAdding" />
+    <fragment
+        android:id="@+id/fragmentDailySchedule"
+        android:name="com.example.veterinary.daily_schedule.FragmentDailySchedule"
+        android:label="FragmentDailySchedule" >
+        <action
+            android:id="@+id/action_fragmentDailySchedule_to_fragmentAddingMeds"
+            app:destination="@id/fragmentAddingMeds" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentAddingMeds"
+        android:name="com.example.veterinary.adding_meds.FragmentAddingMeds"
+        android:label="FragmentAddingMeds" />
+</navigation>
