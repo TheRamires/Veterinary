@@ -24,7 +24,6 @@ public class MyRepositoriy {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(petList -> {listLive.setValue(petList);},
                         throwable -> {return;});
-
     }
 
     public void save(Pet pet){
@@ -47,6 +46,5 @@ public class MyRepositoriy {
         list.add(entity);
 
         listLive.setValue(list);
-
     }
 }

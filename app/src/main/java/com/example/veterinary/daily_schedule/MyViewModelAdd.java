@@ -5,8 +5,6 @@ import android.app.Application;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.MutableLiveData;
-
-import com.example.veterinary.daily_schedule.MyRepositoriyAdd;
 import com.example.veterinary.data.Meds;
 
 import java.util.List;

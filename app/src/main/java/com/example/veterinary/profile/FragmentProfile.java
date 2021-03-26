@@ -22,7 +22,6 @@ import com.example.veterinary.databinding.FragmentProfileBinding;
 
 import java.util.List;
 
-
 public class FragmentProfile extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -58,10 +57,8 @@ public class FragmentProfile extends Fragment {
                 recyclerView.setHasFixedSize(true);
                 recyclerView.setAdapter(adapter);
                 adapter.notifyDataSetChanged();
-
             }
         });
-
 
         return view;
     }

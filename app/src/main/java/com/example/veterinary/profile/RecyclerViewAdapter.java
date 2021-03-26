@@ -47,7 +47,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 Navigation.findNavController(v).navigate(R.id.fragmentDailySchedule, bundle);
             }
         });
-
     }
 
     @Override

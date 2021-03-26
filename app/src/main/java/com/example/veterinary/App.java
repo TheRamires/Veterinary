@@ -1,9 +1,7 @@
 package com.example.veterinary;
 
 import android.app.Application;
-
 import androidx.room.Room;
-
 import com.example.veterinary.room.AppDatabase;
 
 public class App extends Application {

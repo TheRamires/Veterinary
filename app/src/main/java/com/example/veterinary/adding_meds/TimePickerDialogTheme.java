@@ -6,11 +6,8 @@ import android.app.TimePickerDialog;
 import android.os.Bundle;
 import android.widget.TextView;
 import android.widget.TimePicker;
-
 import androidx.fragment.app.DialogFragment;
-
 import com.example.veterinary.R;
-
 import java.util.Calendar;
 
 public class TimePickerDialogTheme extends DialogFragment implements TimePickerDialog.OnTimeSetListener{
@@ -21,11 +18,8 @@ public class TimePickerDialogTheme extends DialogFragment implements TimePickerD
         int hour = calendar.get(Calendar.HOUR);
         int minutes = calendar.get(Calendar.MINUTE);
 
-
         TimePickerDialog timePickerDialog = new TimePickerDialog(getActivity(),
                 AlertDialog.THEME_HOLO_LIGHT,this,hour,minutes,true);
-
-
 
         return timePickerDialog;
     }

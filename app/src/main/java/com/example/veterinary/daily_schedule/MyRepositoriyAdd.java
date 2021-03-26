@@ -4,15 +4,12 @@ import androidx.lifecycle.MutableLiveData;
 
 import com.example.veterinary.App;
 import com.example.veterinary.data.Meds;
-import com.example.veterinary.data.Pet;
 import com.example.veterinary.room.AppDatabase;
 import com.example.veterinary.room.DaoMeds;
-import com.example.veterinary.room.DaoPets;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import io.reactivex.Scheduler;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.functions.Consumer;
@@ -32,16 +29,13 @@ public class MyRepositoriyAdd {
                         medsLive.setValue(meds);
                     }
                 });
-
     }
 
     public void save(Meds meds){
         new Thread(() ->{
             daoMeds.save(meds);
         }).start();
-
     }
-
 
     public void listTest(MutableLiveData<List<Meds>> medsLive){
         //test
@@ -66,6 +60,5 @@ public class MyRepositoriyAdd {
         list.add(meds3);
 
         medsLive.setValue(list);
-
     }
 }

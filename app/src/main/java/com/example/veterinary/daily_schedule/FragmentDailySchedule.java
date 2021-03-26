@@ -18,7 +18,6 @@ import com.example.veterinary.R;
 import com.example.veterinary.data.Meds;
 import com.example.veterinary.data.Pet;
 import com.example.veterinary.databinding.FragmentDailyScheduleBinding;
-import com.example.veterinary.profile.MyViewModel;
 
 import java.util.List;
 

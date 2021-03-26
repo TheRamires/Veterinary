@@ -5,10 +5,8 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
-import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.veterinary.R;
 import com.example.veterinary.data.Meds;
 import com.example.veterinary.databinding.ItemViewMedsBinding;
 
@@ -32,7 +30,6 @@ public class RecyclerViewAdapterMeds extends RecyclerView.Adapter<RecyclerViewAd
     @Override
     public void onBindViewHolder(@NonNull RecyclerViewAdapterMeds.ItemList holder, int position) {
         holder.binding.setEntity(list.get(position));
-
     }
 
     @Override

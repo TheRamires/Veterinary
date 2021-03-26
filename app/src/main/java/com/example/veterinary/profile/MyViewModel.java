@@ -8,7 +8,6 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.MutableLiveData;
 
 import com.example.veterinary.data.Pet;
-
 import java.util.List;
 
 public class MyViewModel extends AndroidViewModel {
