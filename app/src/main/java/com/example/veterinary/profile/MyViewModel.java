@@ -19,7 +19,9 @@ public class MyViewModel extends AndroidViewModel {
     }
 
     public void getList(){
-        repo.loadList(listLive);
+        repo.loadList()
+                .subscribe(petList -> {listLive.setValue(petList);},
+                throwable -> {return;});
         //repo.listTest(listLive);
     }
     public void savePet(String postName,String nameOfPet, String age){
@@ -27,7 +29,13 @@ public class MyViewModel extends AndroidViewModel {
         pet.setPostname(postName);
         pet.setName(nameOfPet);
         pet.setAge(age);
-        Log.d("myLog", pet.getName()+" "+pet.getAge());
-        repo.save(pet);
+
+        repo.save(pet)
+                .subscribe((isSaved)->{
+                    if (isSaved){
+                        getList(); //refresh
+                        Log.d("myLog", "Position is saved: "+pet.getName()+" "+pet.getAge());
+                    }
+                });
     }
 }

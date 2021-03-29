@@ -9,6 +9,7 @@ import com.example.veterinary.data.Pet;
 import java.util.List;
 
 import io.reactivex.Maybe;
+import io.reactivex.Single;
 
 @Dao
 public interface DaoPets {
@@ -16,5 +17,5 @@ public interface DaoPets {
     Maybe<List<Pet>> load();
 
     @Insert
-    void save(Pet...pets);
+    List<Long> save(Pet... pets);
 }

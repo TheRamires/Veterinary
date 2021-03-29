@@ -8,30 +8,35 @@ import com.example.veterinary.room.AppDatabase;
 import com.example.veterinary.room.DaoPets;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
+import io.reactivex.Maybe;
+import io.reactivex.Single;
 import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
 public class MyRepositoriy {
     private AppDatabase db= App.getInstance().getDatabase();
     public DaoPets daoPets=db.daoPets();
 
-    public void loadList(MutableLiveData<List<Pet>> listLive ){
-        daoPets.load()
+    public Maybe<List<Pet>> loadList(){
+        return daoPets.load()
                 .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(petList -> {listLive.setValue(petList);},
-                        throwable -> {return;});
+                .observeOn(AndroidSchedulers.mainThread());
     }
 
-    public void save(Pet pet){
-
-        Date date = new Date();
-        new Thread(() ->{
-                daoPets.save(pet);
-        }).start();
+    public Maybe<Boolean> save(Pet pet){
+        return Maybe.fromCallable(() -> daoPets.save(pet))
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .map((longs)->{
+                    if(longs.size()>=0){
+                        return true;
+                    } else {
+                        return false;
+                    }
+                });
     }
 
     public void listTest(MutableLiveData<List<Pet>> listLive){
