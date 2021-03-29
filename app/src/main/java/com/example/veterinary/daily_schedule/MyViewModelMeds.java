@@ -1,6 +1,7 @@
 package com.example.veterinary.daily_schedule;
 
 import android.app.Application;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
@@ -9,16 +10,22 @@ import com.example.veterinary.data.Meds;
 
 import java.util.List;
 
-public class MyViewModelAdd extends AndroidViewModel {
+import io.reactivex.functions.Consumer;
+
+public class MyViewModelMeds extends AndroidViewModel {
     MutableLiveData<List<Meds>> medsLive=new MutableLiveData<>();
-    MyRepositoriyAdd repo=new MyRepositoriyAdd();
-    public MyViewModelAdd(@NonNull Application application) {
+    MyRepositoriyMeds repo=new MyRepositoriyMeds();
+    public MyViewModelMeds(@NonNull Application application) {
         super(application);
     }
 
     public void getData(int idOfPet){
-        repo.loadList(idOfPet,medsLive);
+        repo.loadList(idOfPet)
+                .subscribe((meds) -> {
+                medsLive.setValue(meds);
+        });
     }
+
     public void saveMeds(int idOfPet,String date,String time,String nameOfMeds,String dosage ){
         Meds meds=new Meds();
         meds.setIdOfPet(idOfPet);
@@ -26,6 +33,12 @@ public class MyViewModelAdd extends AndroidViewModel {
         meds.setTime(time);
         meds.setMedication(nameOfMeds);
         meds.setDosage(dosage);
-        repo.save(meds);
+
+        repo.save(meds)
+                .subscribe((isSaved)->{
+                    if (isSaved){
+                        getData(idOfPet); //refresh
+                    }
+                });
     }
 }

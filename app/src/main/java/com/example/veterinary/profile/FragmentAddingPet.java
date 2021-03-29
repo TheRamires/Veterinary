@@ -13,7 +13,7 @@ import android.view.ViewGroup;
 import com.example.veterinary.databinding.FragmentAddingBinding;
 
 public class FragmentAddingPet extends Fragment {
-    private  MyViewModel viewModel;
+    private MyViewModelPet viewModel;
     private FragmentAddingBinding binding;
     private String postName="";
     private String nameOfPet="";
@@ -24,7 +24,7 @@ public class FragmentAddingPet extends Fragment {
                              Bundle savedInstanceState) {
         binding=FragmentAddingBinding.inflate(inflater);
         binding.setFragment(this);
-        viewModel=new ViewModelProvider(requireActivity()).get(MyViewModel.class);
+        viewModel=new ViewModelProvider(requireActivity()).get(MyViewModelPet.class);
         viewModel.getList();
         View view=binding.getRoot();
 

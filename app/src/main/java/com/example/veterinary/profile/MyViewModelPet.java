@@ -10,11 +10,11 @@ import androidx.lifecycle.MutableLiveData;
 import com.example.veterinary.data.Pet;
 import java.util.List;
 
-public class MyViewModel extends AndroidViewModel {
-    private MyRepositoriy repo=new MyRepositoriy();
+public class MyViewModelPet extends AndroidViewModel {
+    private MyRepositoriyPet repo=new MyRepositoriyPet();
     public MutableLiveData<List<Pet>> listLive=new MutableLiveData<>();
 
-    public MyViewModel(@NonNull Application application) {
+    public MyViewModelPet(@NonNull Application application) {
         super(application);
     }
 

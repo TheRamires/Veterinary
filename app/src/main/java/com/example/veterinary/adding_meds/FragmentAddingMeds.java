@@ -11,7 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.veterinary.daily_schedule.MyViewModelAdd;
+import com.example.veterinary.daily_schedule.MyViewModelMeds;
 import com.example.veterinary.databinding.FragmentAddingMedsBinding;
 
 public class FragmentAddingMeds extends Fragment {
@@ -21,7 +21,7 @@ public class FragmentAddingMeds extends Fragment {
     private String time;
     private String nameOfMeds;
     private String dosage;
-    private MyViewModelAdd viewModelAdd;
+    private MyViewModelMeds viewModelAdd;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -30,7 +30,7 @@ public class FragmentAddingMeds extends Fragment {
         binding.setFragment(this);
         idOfPet=getArguments().getInt("idOfPet");
         View view = binding.getRoot();
-        viewModelAdd=new ViewModelProvider(this).get(MyViewModelAdd.class);
+        viewModelAdd=new ViewModelProvider(this).get(MyViewModelMeds.class);
 
         return view;
     }

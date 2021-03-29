@@ -17,5 +17,5 @@ public interface DaoMeds {
     Maybe<List<Meds>> load(int idOfPet);
 
     @Insert
-    void save(Meds...meds);
+    List<Long> save(Meds...meds);
 }

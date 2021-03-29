@@ -29,7 +29,7 @@ public class FragmentProfile extends Fragment {
         FragmentProfileBinding binding=FragmentProfileBinding.inflate(inflater);
         binding.setFragment(this);
         View view=binding.getRoot();
-        MyViewModel viewModel=new ViewModelProvider(requireActivity()).get(MyViewModel.class);
+        MyViewModelPet viewModel=new ViewModelProvider(requireActivity()).get(MyViewModelPet.class);
         viewModel.getList();
 
         ActionMenuView actionMenuView = binding.actionMenu;

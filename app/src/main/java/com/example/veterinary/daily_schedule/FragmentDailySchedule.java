@@ -33,7 +33,7 @@ public class FragmentDailySchedule extends Fragment {
         binding.setFragment(this);
         View view=binding.getRoot();
         RecyclerView recyclerView=binding.recycler;
-        MyViewModelAdd viewModelAdd=new ViewModelProvider(this).get(MyViewModelAdd.class);
+        MyViewModelMeds viewModelAdd=new ViewModelProvider(this).get(MyViewModelMeds.class);
         idOfPet=getArguments().getInt("idOfPet");
 
         Log.d("myLog","Pet`s id = "+idOfPet);

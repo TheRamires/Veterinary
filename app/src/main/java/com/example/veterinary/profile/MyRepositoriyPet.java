@@ -16,7 +16,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
-public class MyRepositoriy {
+public class MyRepositoriyPet {
     private AppDatabase db= App.getInstance().getDatabase();
     public DaoPets daoPets=db.daoPets();
 
