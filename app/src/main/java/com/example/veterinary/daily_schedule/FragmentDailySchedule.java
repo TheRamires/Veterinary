@@ -14,26 +14,26 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.veterinary.App;
 import com.example.veterinary.R;
 import com.example.veterinary.data.Meds;
-import com.example.veterinary.data.Pet;
 import com.example.veterinary.databinding.FragmentDailyScheduleBinding;
 
 import java.util.List;
 
 public class FragmentDailySchedule extends Fragment {
-    private Pet pet;
+    MyViewModelMeds viewModelAdd;
     private FragmentDailyScheduleBinding binding;
     private int idOfPet;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        viewModelAdd=App.getInstance().getComponent().getViewModelMeds();
         binding=FragmentDailyScheduleBinding.inflate(inflater);
         binding.setFragment(this);
         View view=binding.getRoot();
         RecyclerView recyclerView=binding.recycler;
-        MyViewModelMeds viewModelAdd=new ViewModelProvider(this).get(MyViewModelMeds.class);
         idOfPet=getArguments().getInt("idOfPet");
 
         Log.d("myLog","Pet`s id = "+idOfPet);

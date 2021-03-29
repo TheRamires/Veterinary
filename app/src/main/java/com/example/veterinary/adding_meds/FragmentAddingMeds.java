@@ -4,13 +4,13 @@ import android.os.Bundle;
 
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.veterinary.App;
 import com.example.veterinary.daily_schedule.MyViewModelMeds;
 import com.example.veterinary.databinding.FragmentAddingMedsBinding;
 
@@ -21,16 +21,16 @@ public class FragmentAddingMeds extends Fragment {
     private String time;
     private String nameOfMeds;
     private String dosage;
-    private MyViewModelMeds viewModelAdd;
+    private MyViewModelMeds viewModel;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        viewModel=App.getInstance().getComponent().getViewModelMeds();
         binding = FragmentAddingMedsBinding.inflate(inflater);
         binding.setFragment(this);
         idOfPet=getArguments().getInt("idOfPet");
         View view = binding.getRoot();
-        viewModelAdd=new ViewModelProvider(this).get(MyViewModelMeds.class);
 
         return view;
     }
@@ -52,7 +52,7 @@ public class FragmentAddingMeds extends Fragment {
     public void clickSave(View view){
         date=binding.date.getText().toString();
         time=binding.time.getText().toString();
-        viewModelAdd.saveMeds(idOfPet,date,time,nameOfMeds,dosage);
+        viewModel.saveMeds(idOfPet,date,time,nameOfMeds,dosage);
         Navigation.findNavController(view).popBackStack();
     }
 

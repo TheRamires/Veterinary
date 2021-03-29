@@ -1,22 +1,22 @@
 package com.example.veterinary.daily_schedule;
 
 import android.app.Application;
-import android.util.Log;
 
 import androidx.annotation.NonNull;
-import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.ViewModel;
+
 import com.example.veterinary.data.Meds;
 
 import java.util.List;
 
-import io.reactivex.functions.Consumer;
 
-public class MyViewModelMeds extends AndroidViewModel {
-    MutableLiveData<List<Meds>> medsLive=new MutableLiveData<>();
-    MyRepositoriyMeds repo=new MyRepositoriyMeds();
-    public MyViewModelMeds(@NonNull Application application) {
-        super(application);
+public class MyViewModelMeds extends ViewModel {
+    private MyRepositoriyMeds repo;
+    public MutableLiveData<List<Meds>> medsLive=new MutableLiveData<>();
+
+    public MyViewModelMeds(MyRepositoriyMeds repo) {
+        this.repo=repo;
     }
 
     public void getData(int idOfPet){

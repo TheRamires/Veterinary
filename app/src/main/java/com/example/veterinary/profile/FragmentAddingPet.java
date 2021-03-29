@@ -3,17 +3,18 @@ package com.example.veterinary.profile;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.veterinary.App;
 import com.example.veterinary.databinding.FragmentAddingBinding;
 
+
 public class FragmentAddingPet extends Fragment {
-    private MyViewModelPet viewModel;
+    MyViewModelPet viewModel;
     private FragmentAddingBinding binding;
     private String postName="";
     private String nameOfPet="";
@@ -22,9 +23,9 @@ public class FragmentAddingPet extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        viewModel= App.getInstance().getComponent().getViewModelPet();
         binding=FragmentAddingBinding.inflate(inflater);
         binding.setFragment(this);
-        viewModel=new ViewModelProvider(requireActivity()).get(MyViewModelPet.class);
         viewModel.getList();
         View view=binding.getRoot();
 

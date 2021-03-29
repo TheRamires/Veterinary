@@ -18,8 +18,11 @@ import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 
 public class MyRepositoriyMeds {
-    private AppDatabase db= App.getInstance().getDatabase();
-    public DaoMeds daoMeds=db.daoMeds();
+    public DaoMeds daoMeds;
+
+    public MyRepositoriyMeds(DaoMeds daoMeds){
+        this.daoMeds=daoMeds;
+    }
 
     public Maybe<List<Meds>> loadList(int petId){
         return daoMeds.load(petId)

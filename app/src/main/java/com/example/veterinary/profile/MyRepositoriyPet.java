@@ -17,8 +17,11 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
 public class MyRepositoriyPet {
-    private AppDatabase db= App.getInstance().getDatabase();
-    public DaoPets daoPets=db.daoPets();
+    public DaoPets daoPets;
+
+    public MyRepositoriyPet(DaoPets daoPets){
+        this.daoPets=daoPets;
+    }
 
     public Maybe<List<Pet>> loadList(){
         return daoPets.load()

@@ -4,18 +4,18 @@ import android.app.Application;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
-import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.ViewModel;
 
 import com.example.veterinary.data.Pet;
 import java.util.List;
 
-public class MyViewModelPet extends AndroidViewModel {
-    private MyRepositoriyPet repo=new MyRepositoriyPet();
+public class MyViewModelPet extends ViewModel {
+    private MyRepositoriyPet repo;
     public MutableLiveData<List<Pet>> listLive=new MutableLiveData<>();
 
-    public MyViewModelPet(@NonNull Application application) {
-        super(application);
+    public MyViewModelPet(MyRepositoriyPet repo) {
+        this.repo=repo;
     }
 
     public void getList(){
@@ -24,6 +24,7 @@ public class MyViewModelPet extends AndroidViewModel {
                 throwable -> {return;});
         //repo.listTest(listLive);
     }
+
     public void savePet(String postName,String nameOfPet, String age){
         Pet pet=new Pet();
         pet.setPostname(postName);

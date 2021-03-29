@@ -1,20 +1,25 @@
 package com.example.veterinary;
 
 import android.app.Application;
-import androidx.room.Room;
-import com.example.veterinary.room.AppDatabase;
+
+import com.example.veterinary.dagger.DaggerMyComponent;
+import com.example.veterinary.dagger.MyComponent;
+import com.example.veterinary.dagger.MyDatabaseModule;
+import com.example.veterinary.dagger.MyModule;
+
 
 public class App extends Application {
     public static App instance;
-    private AppDatabase database;
+    private MyComponent myComponent;
 
     @Override
     public void onCreate() {
         super.onCreate();
-
         instance = this;
-        database = Room.databaseBuilder(this,AppDatabase.class, "database")
-                .fallbackToDestructiveMigration()
+
+        myComponent= DaggerMyComponent.builder()
+                .myModule(new MyModule())
+                .myDatabaseModule(new MyDatabaseModule(getApplicationContext()))
                 .build();
     }
 
@@ -22,7 +27,8 @@ public class App extends Application {
         return instance;
     }
 
-    public AppDatabase getDatabase() {
-        return database;
+    public MyComponent getComponent(){
+        return myComponent;
     }
+
 }

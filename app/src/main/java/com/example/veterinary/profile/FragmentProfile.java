@@ -5,7 +5,6 @@ import android.os.Bundle;
 import androidx.appcompat.widget.ActionMenuView;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -16,6 +15,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.veterinary.App;
 import com.example.veterinary.R;
 import com.example.veterinary.data.Pet;
 import com.example.veterinary.databinding.FragmentProfileBinding;
@@ -23,13 +23,16 @@ import com.example.veterinary.databinding.FragmentProfileBinding;
 import java.util.List;
 
 public class FragmentProfile extends Fragment {
+    MyViewModelPet viewModel;
+    private FragmentProfileBinding binding;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        FragmentProfileBinding binding=FragmentProfileBinding.inflate(inflater);
+        viewModel=App.getInstance().getComponent().getViewModelPet();
+        binding=FragmentProfileBinding.inflate(inflater);
         binding.setFragment(this);
         View view=binding.getRoot();
-        MyViewModelPet viewModel=new ViewModelProvider(requireActivity()).get(MyViewModelPet.class);
         viewModel.getList();
 
         ActionMenuView actionMenuView = binding.actionMenu;

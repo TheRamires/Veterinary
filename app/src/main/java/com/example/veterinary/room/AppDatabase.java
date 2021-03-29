@@ -6,7 +6,7 @@ import androidx.room.RoomDatabase;
 import com.example.veterinary.data.Meds;
 import com.example.veterinary.data.Pet;
 
-@Database(entities = {Pet.class, Meds.class}, version = 3)
+@Database(entities = {Pet.class, Meds.class}, version = 1)
 public abstract class AppDatabase extends RoomDatabase {
     public abstract DaoPets daoPets();
     public abstract DaoMeds daoMeds();
