@@ -2,18 +2,14 @@ package com.example.veterinary.profile;
 
 import androidx.lifecycle.MutableLiveData;
 
-import com.example.veterinary.App;
 import com.example.veterinary.data.Pet;
-import com.example.veterinary.room.AppDatabase;
 import com.example.veterinary.room.DaoPets;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import io.reactivex.Maybe;
-import io.reactivex.Single;
 import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
 public class MyRepositoriyPet  {

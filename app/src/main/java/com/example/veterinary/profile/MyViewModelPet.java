@@ -1,9 +1,6 @@
 package com.example.veterinary.profile;
 
-import android.app.Application;
 import android.util.Log;
-
-import androidx.annotation.NonNull;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 

@@ -12,7 +12,6 @@ import android.view.ViewGroup;
 import com.example.veterinary.App;
 import com.example.veterinary.databinding.FragmentAddingBinding;
 
-
 public class FragmentAddingPet extends Fragment {
     MyViewModelPet viewModel;
     private FragmentAddingBinding binding;
