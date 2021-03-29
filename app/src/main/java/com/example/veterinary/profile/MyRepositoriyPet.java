@@ -16,7 +16,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
-public class MyRepositoriyPet {
+public class MyRepositoriyPet  {
     public DaoPets daoPets;
 
     public MyRepositoriyPet(DaoPets daoPets){
