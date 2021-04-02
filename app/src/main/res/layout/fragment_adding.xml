@@ -13,34 +13,42 @@
         tools:context=".profile.FragmentAddingPet"
         android:background="#F1F0F0">
 
-        <TextView
-            android:id="@+id/title"
+        <RelativeLayout
+            android:id="@+id/title_layout"
             android:background="#FFFFFF"
-            android:textColor="@color/black"
-            android:textSize="35sp"
-            android:textStyle="bold"
-            android:gravity="center"
             android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:text="Добавление \n питомца"/>
+            android:layout_height="150dp">
 
-        <ImageButton
-            android:layout_marginTop="50dp"
-            android:layout_marginLeft="40dp"
-            android:background="@drawable/round_button"
-            android:id="@+id/img_b"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:onClick="@{fragment::clickBack}"
-            android:src="@drawable/back"
-            />
+            <TextView
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/img_b"
+                android:id="@+id/title"
+                android:textColor="@color/black"
+                android:textSize="35sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="150dp"
+                android:text="Добавление \n питомца"/>
 
+
+            <ImageButton
+                android:layout_marginTop="50dp"
+                android:layout_marginLeft="40dp"
+                android:background="@drawable/round_button"
+                android:id="@+id/img_b"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:onClick="@{fragment::clickBack}"
+                android:src="@drawable/back"/>
+
+        </RelativeLayout>
 
         <FrameLayout
             android:layout_marginTop="20dp"
             android:background="#FFFFFF"
             android:paddingHorizontal="30dp"
-            android:layout_below="@+id/title"
+            android:layout_below="@+id/title_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
