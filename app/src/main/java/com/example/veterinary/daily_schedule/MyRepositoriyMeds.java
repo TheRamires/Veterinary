@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import io.reactivex.Maybe;
+import io.reactivex.Single;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.functions.Consumer;
@@ -24,14 +25,14 @@ public class MyRepositoriyMeds {
         this.daoMeds=daoMeds;
     }
 
-    public Maybe<List<Meds>> loadList(int petId){
+    public Single<List<Meds>> loadList(int petId){
         return daoMeds.load(petId)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread());
     }
 
-    public Maybe<Boolean> save(Meds meds){
-        return Maybe.fromCallable(() -> daoMeds.save(meds))
+    public Single<Boolean> save(Meds meds){
+        return Single.fromCallable(() -> daoMeds.save(meds))
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .map((longs)->{

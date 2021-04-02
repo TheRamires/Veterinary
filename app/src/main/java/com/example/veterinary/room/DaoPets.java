@@ -14,7 +14,7 @@ import io.reactivex.Single;
 @Dao
 public interface DaoPets {
     @Query("SELECT * FROM Pet")
-    Maybe<List<Pet>> load();
+    Single<List<Pet>> load();
 
     @Insert
     List<Long> save(Pet... pets);

@@ -10,11 +10,12 @@ import com.example.veterinary.data.Pet;
 import java.util.List;
 
 import io.reactivex.Maybe;
+import io.reactivex.Single;
 
 @Dao
 public interface DaoMeds {
     @Query("SELECT * FROM meds where idOfPet=:idOfPet")
-    Maybe<List<Meds>> load(int idOfPet);
+    Single<List<Meds>> load(int idOfPet);
 
     @Insert
     List<Long> save(Meds...meds);

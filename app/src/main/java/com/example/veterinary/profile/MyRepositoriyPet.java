@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import io.reactivex.Maybe;
+import io.reactivex.Single;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 
@@ -19,14 +20,14 @@ public class MyRepositoriyPet  {
         this.daoPets=daoPets;
     }
 
-    public Maybe<List<Pet>> loadList(){
+    public Single<List<Pet>> loadList(){
         return daoPets.load()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread());
     }
 
-    public Maybe<Boolean> save(Pet pet){
-        return Maybe.fromCallable(() -> daoPets.save(pet))
+    public Single<Boolean> save(Pet pet){
+        return Single.fromCallable(() -> daoPets.save(pet))
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .map((longs)->{
