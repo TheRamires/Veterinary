@@ -22,6 +22,8 @@ import com.example.veterinary.databinding.FragmentProfileBinding;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
 public class FragmentProfile extends Fragment {
     MyViewModelPet viewModel;
     private FragmentProfileBinding binding;
@@ -29,7 +31,7 @@ public class FragmentProfile extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        viewModel=App.getInstance().getComponent().getViewModelPet();
+        viewModel=App.getInstance().getComponent().getViewModelPets();
         binding=FragmentProfileBinding.inflate(inflater);
         binding.setFragment(this);
         View view=binding.getRoot();

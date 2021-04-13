@@ -2,20 +2,15 @@ package com.example.veterinary.daily_schedule;
 
 import androidx.lifecycle.MutableLiveData;
 
-import com.example.veterinary.App;
 import com.example.veterinary.data.Meds;
-import com.example.veterinary.data.Pet;
-import com.example.veterinary.room.AppDatabase;
 import com.example.veterinary.room.DaoMeds;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import io.reactivex.Maybe;
+import io.reactivex.Observable;
 import io.reactivex.Single;
 import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.annotations.NonNull;
-import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 
 public class MyRepositoriyMeds {
@@ -31,17 +26,13 @@ public class MyRepositoriyMeds {
                 .observeOn(AndroidSchedulers.mainThread());
     }
 
-    public Single<Boolean> save(Meds meds){
-        return Single.fromCallable(() -> daoMeds.save(meds))
+    public Observable<List<Meds>> save(Meds meds, int idOfPet){
+        return Observable.fromCallable(()->daoMeds.save(meds))
                 .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .map((longs)->{
-                    if(longs.size()>=0){
-                        return true;
-                    } else {
-                        return false;
-                    }
-                });
+                .flatMap((isSaved -> {
+                    return daoMeds.load(idOfPet).toObservable();
+                }));
+
     }
 
     public void listTest(MutableLiveData<List<Meds>> medsLive){

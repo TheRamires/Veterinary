@@ -12,6 +12,8 @@ import android.view.ViewGroup;
 import com.example.veterinary.App;
 import com.example.veterinary.databinding.FragmentAddingBinding;
 
+import javax.inject.Inject;
+
 public class FragmentAddingPet extends Fragment {
     MyViewModelPet viewModel;
     private FragmentAddingBinding binding;
@@ -22,7 +24,7 @@ public class FragmentAddingPet extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        viewModel= App.getInstance().getComponent().getViewModelPet();
+        viewModel=App.getInstance().getComponent().getViewModelPets();
         binding=FragmentAddingBinding.inflate(inflater);
         binding.setFragment(this);
         viewModel.getList();
