@@ -7,10 +7,12 @@ import androidx.lifecycle.ViewModel;
 import com.example.veterinary.data.Pet;
 import java.util.List;
 
+import javax.inject.Inject;
+
 public class MyViewModelPet extends ViewModel {
     private MyRepositoriyPet repo;
     public MutableLiveData<List<Pet>> listLive=new MutableLiveData<>();
-
+    @Inject
     public MyViewModelPet(MyRepositoriyPet repo) {
         this.repo=repo;
     }

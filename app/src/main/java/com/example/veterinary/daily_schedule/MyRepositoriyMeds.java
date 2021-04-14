@@ -8,6 +8,8 @@ import com.example.veterinary.room.DaoMeds;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.inject.Inject;
+
 import io.reactivex.Observable;
 import io.reactivex.Single;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -16,6 +18,7 @@ import io.reactivex.schedulers.Schedulers;
 public class MyRepositoriyMeds {
     public DaoMeds daoMeds;
 
+    @Inject
     public MyRepositoriyMeds(DaoMeds daoMeds){
         this.daoMeds=daoMeds;
     }

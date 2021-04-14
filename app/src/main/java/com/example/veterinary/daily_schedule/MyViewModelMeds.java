@@ -7,15 +7,19 @@ import com.example.veterinary.data.Meds;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Consumer;
 import io.reactivex.observers.DisposableSingleObserver;
 
 public class MyViewModelMeds extends ViewModel {
     private MyRepositoriyMeds repo;
     public MutableLiveData<List<Meds>> medsLive=new MutableLiveData<>();
 
+    @Inject
     public MyViewModelMeds(MyRepositoriyMeds repo) {
         this.repo=repo;
     }
@@ -45,9 +49,27 @@ public class MyViewModelMeds extends ViewModel {
 
         repo.save(meds, idOfPet)
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe((List<Meds> list)-> {
-                    medsLive.setValue(list);
+                .subscribe(new Observer<List<Meds>>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
 
-                }).dispose();
+                    }
+
+                    @Override
+                    public void onNext(List<Meds> list) {
+                        medsLive.setValue(list);
+
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
     }
 }

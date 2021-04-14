@@ -13,7 +13,7 @@ import javax.inject.Singleton;
 import dagger.Component;
 
 @Singleton
-@Component(modules = {MyModule.class, MyDatabaseModule.class})
+@Component(modules = {MyDatabaseModule.class})
 public interface MyComponent {
     MyViewModelPet getViewModelPets();
     MyViewModelMeds getViewModelMeds();

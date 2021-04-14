@@ -8,6 +8,7 @@ import com.example.veterinary.room.AppDatabase;
 import com.example.veterinary.room.DaoMeds;
 import com.example.veterinary.room.DaoPets;
 
+import javax.inject.Inject;
 import javax.inject.Singleton;
 
 import dagger.Module;
@@ -20,13 +21,14 @@ public class MyDatabaseModule {
     public MyDatabaseModule(Context context){
         this.mcontext=context;
     }
-
+    @Inject
     @Singleton
     @Provides
     DaoPets provideDaoPets(AppDatabase appDatabase){
         return appDatabase.daoPets();
     }
 
+    @Inject
     @Singleton
     @Provides
     DaoMeds provideDaoMeds(AppDatabase appDatabase){
